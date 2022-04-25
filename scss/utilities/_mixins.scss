@@ -1,0 +1,48 @@
+//Map Mixin for Media Queries
+
+@media (min-width: 64em) {
+    //styles go here
+}
+
+$breakpoints-up:("medium": "40em", "large": "64em", "xlarge": "87.5em", "xxlarge": "130em");
+
+$breakpoints-down:("x-small": "17.5em", "small": "39em", "medium": "63em", "large": "86.5em", "xlarge": "129em");
+
+@mixin breakpoint-up($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content
+    }
+
+}
+
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+        @content
+    }
+
+}
+
+
+
+@mixin flexy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+@mixin cardFlex {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 0.5rem;
+        padding: 2.5rem;
+        margin: 2.5rem 2rem;
+}
+
+@mixin ul {
+   padding: 5px 0; 
+   list-style: none;
+   margin: 0.5em 0;
+}
